@@ -1,17 +1,18 @@
 <template>
     <div class="z-astro">
-      <h1 class="z-title">十二星座</h1>
-      <a :href="`${runtimeConfig.public.APP_URL}/astro/${item.id}`" v-for="item in astro" class="z-astro-link">
-        <img :src="item.img" :alt="`${item.title}图片`" height="130" width="130" class="z-astro-img">
-        <div class="z-right">
-          <h2 class="z-title-h2">{{ item.title }}-{{item.name}}</h2>
-          <p class="z-p">生日：{{ item.date }}</p>
-          <p class="z-p">相容星座：{{ item.astro }}</p>
-          <p class="z-p">简单描述：{{ item.description }}</p>
-          <p class="z-p"><span class="z-more">详情>></span></p>
-        </div>
-      </a>
-      <gg :auto-with="true"></gg>
+      <div class="z-astro-box">
+        <h1 class="z-title">十二星座</h1>
+        <a :href="`${runtimeConfig.public.APP_URL}/astro/${item.id}`" v-for="item in astro" class="z-astro-link">
+          <img :src="item.img" :alt="`${item.title}图片`" height="130" width="130" class="z-astro-img">
+          <div class="z-right">
+            <h2 class="z-title-h2">{{ item.title }}-{{item.name}}</h2>
+            <p class="z-p">生日：{{ item.date }}</p>
+            <p class="z-p">相容星座：{{ item.astro }}</p>
+            <p class="z-p">简单描述：{{ item.description }}</p>
+            <p class="z-p"><span class="z-more">详情>></span></p>
+          </div>
+        </a>
+      </div>
     </div>
 </template>
 <script setup>
@@ -31,8 +32,11 @@ astro.value = res.data.value.data.list
 </script>
 <style scoped lang="scss">
 .z-astro {
-  min-height: 80vh;background: #fff;
-  padding: 20px;margin-top: 20px;
+  min-height: 80vh;background-color: #fef4d7;
+  padding: 20px;margin-top: 20px;width: 100%;margin:auto;
+  .z-astro-box {
+    width: 1400px;margin:auto;padding: 30px 30px 0px 30px;background-color: #fff;border-radius: 10px;
+  }
   .z-title {
     display: block;
     padding-bottom: 20px;

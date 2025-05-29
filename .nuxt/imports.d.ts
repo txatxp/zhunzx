@@ -37,4 +37,5 @@ export { AddLocation as ElIconAddLocation, Aim as ElIconAim, AlarmClock as ElIco
 export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerSeoMeta, useServerHeadSafe } from '@unhead/vue';
 export { useApis } from '../composables/useApis';
 export { getTodayDate, getTomorrowDate, getMonthDate } from '../utils/index';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';

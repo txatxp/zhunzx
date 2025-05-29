@@ -1,17 +1,14 @@
 html,body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
 li,ul,ol,dl,dt,dd {list-style:none;list-style-type: none;}
-html {
-    background: url("/xingkong.png") repeat,#120f35;
-}
+
 body {
     font-family: 'Microsoft YaHei', 'Arial', sans-serif;
 }
 .global-box {
     min-height: 100vh;
+    position: relative;
 }
-.z-body {
-    width: 1400px;margin:auto;position: relative;
-}
+
 .z-text-align-center {
     text-align: center;
 }
@@ -21,4 +18,15 @@ body {
 .z-float-right {
     float:right;
 
+}
+.z-body {
+    overflow: hidden;
+}
+@media screen and (max-width: 1400px) {
+    html,body {
+        width: 100%;
+    }
+    .z-body {
+        width: auto;margin:auto;position: relative;
+    }
 }

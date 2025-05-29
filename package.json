@@ -12,14 +12,19 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@3d-dice/dice-box": "^1.1.4",
+    "@3d-dice/theme-genesys": "^0.1.1",
     "china-location": "^2.1.0",
     "dotenv": "^16.4.5",
     "howler": "^2.2.4",
+    "macy": "^2.5.1",
     "nuxt": "^3.13.0",
     "sass": "^1.79.5",
     "sass-embedded": "^1.79.5",
+    "swiper": "^11.2.6",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue-waterfall-plugin-next": "^2.6.5"
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.1.0"

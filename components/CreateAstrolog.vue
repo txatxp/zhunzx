@@ -624,31 +624,61 @@ const lookMaxImg = () => {
 </script>
 <style lang="scss" scoped>
 @import '@/assets/css/form.scss';
-.z-form-box {
-    width: 700px;
-    margin: auto;
-}
-.z-disabled {
-    opacity: 0.5;cursor: not-allowed;
+@media screen and (min-width: 1400px) {
+    .z-form-box {
+        width: 700px;
+        margin: auto;
+    }
+    .z-disabled {
+        opacity: 0.5;cursor: not-allowed;
 
+    }
+    .z-edit-icon,.z-edit-sp {
+        vertical-align: middle;
+    }
+    .z-edit-icon {
+        position: relative;
+        left: 2px;
+    }
+    .z-dst-icon {
+        position: relative;
+        top: 15px;
+    }
+    .z-map {
+        position: absolute;
+        width: 1px;height: 1px;left: 0px;top: 0px;z-index: 999;
+        background-color: aliceblue;
+    }
+    .z-code {
+        background:#fff;cursor: pointer;
+    }
 }
-.z-edit-icon,.z-edit-sp {
-    vertical-align: middle;
-}
-.z-edit-icon {
-    position: relative;
-    left: 2px;
-}
-.z-dst-icon {
-    position: relative;
-    top: 15px;
-}
-.z-map {
-    position: absolute;
-    width: 1px;height: 1px;left: 0px;top: 0px;z-index: 999;
-    background-color: aliceblue;
-}
-.z-code {
-    background:#fff;cursor: pointer;
+@media screen and (max-width: 1400px) {
+    .z-form-box {
+        margin: auto;
+    }
+    .z-disabled {
+        opacity: 0.5;cursor: not-allowed;
+
+    }
+    .z-edit-icon,.z-edit-sp {
+        vertical-align: middle;
+    }
+    .z-edit-icon {
+        position: relative;
+        left: 2px;
+    }
+    .z-dst-icon {
+        position: relative;
+        top: 15px;
+    }
+    .z-map {
+        position: absolute;
+        width: 1px;height: 1px;left: 0px;top: 0px;z-index: 999;
+        background-color: aliceblue;
+    }
+    .z-code {
+        background:#fff;cursor: pointer;
+    }
 }
 </style>

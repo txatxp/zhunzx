@@ -120,6 +120,32 @@ export function useApis() {
                     keywords: ''
                 },
             })
-        }
+        },
+        async getBannerList() {
+            return await useFetch(runtimeConfig.public.API_URL + '/api/banner/list2', {
+            })
+        },
+        // async getWallpaperList() {
+        //     return await useFetch(runtimeConfig.public.API_URL + '/api/wallpaper/list2', {
+        //     })
+        // },
+        async getroom(url, headers, body) {
+            return await useFetch(url, {
+                method: "POST",
+                headers,
+                body: JSON.stringify(body),
+            })
+        },
+        async getTheme(url, headers) {
+            return await useFetch(url, {
+                headers,
+            })
+        },
+        // 获取文章数据
+        async getWallpaperList(query) {
+            return await useFetch(runtimeConfig.public.API_URL + '/api/wallpaper/list2', {
+                query: query,
+            })
+        },
     }
 }

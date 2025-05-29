@@ -1,8 +1,11 @@
 <template>
-    <div class="z-astro">
-      <h1 class="z-title">{{ astro.title }}</h1>
-      <div v-html="astro.peculiarity"></div>
-      <gg></gg>
+    <div class="z-astro-box">
+      <div class="z-astro">
+        <h1 class="z-title">{{ astro.title }}</h1>
+        <div v-html="astro.peculiarity"></div>
+        <gg></gg> 
+      </div>
+      
     </div>
 </template>
 <script setup>
@@ -24,9 +27,14 @@ useSeoMeta({
 });
 </script>
 <style scoped lang="scss">
+.z-astro-box {
+  width: 100%;background:url("https://file.zhunzx.cn/zhanbu-bg2.png?v=3") no-repeat center top;
+  background-size: cover;padding: 30px 0px;
+}
 .z-astro {
   min-height: 80vh;background: #fff;
   padding: 40px;margin-top: 20px;
+  width: 1400px;margin:auto;border-radius: 12px;
   .z-title {
     display: block;
     padding-bottom: 30px;

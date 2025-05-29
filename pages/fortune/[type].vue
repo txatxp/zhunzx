@@ -1,142 +1,143 @@
 <template>
-    <Recommend title="星座运势分析推荐" :article="article" type="fortune_related"></Recommend>
-    <ul class="z-fortune-type-ul">
-      <li :class="{'z-fortune-type-li': true, 'z-fortune-type-active-li': fortuneDateType === 'today' || !fortuneDateType}">
-        <a :href="runtimeConfig.public.APP_URL + `/fortune/${astroType}?fortuneDateType=today&type=${explain}`" class="z-link">今日运势</a>
-      </li>
-      <li :class="{'z-fortune-type-li': true, 'z-fortune-type-active-li': fortuneDateType === 'tomorrow'}">
-        <a :href="runtimeConfig.public.APP_URL + `/fortune/${astroType}?fortuneDateType=tomorrow&type=${explain}`" class="z-link">明日运势</a>
-      </li>
-      <li :class="{'z-fortune-type-li': true, 'z-fortune-type-active-li': fortuneDateType === 'month'}">
-        <a :href="runtimeConfig.public.APP_URL + `/fortune/${astroType}?fortuneDateType=month&type=${explain}`" class="z-link">本月运势</a>
-      </li>
-      <li :class="{'z-fortune-type-li': true, 'z-fortune-type-active-li': fortuneDateType === 'years'}">
-        <a :href="runtimeConfig.public.APP_URL + `/fortune/${astroType}?fortuneDateType=years&type=${explain}`" class="z-link">今年运势</a>
-      </li>
-    </ul>
-    <div class="z-fortune">
-      <div class="z-header-box">
-        <h1 class="z-fortune-title">{{ astroConfig[astroType] }}{{dateTypeConfig[fortuneDateType]}} {{ date }}</h1>
-        
-        <ul class="z-astro-ul">
-          <li class="z-astro-li" v-for="(item,key) in astroConfig" :key="key">
-            <img :src="runtimeConfig.public.APP_URL + `/${key}.png`" class="z-astro-img" :alt="`${item}图片`" height="16" width="16">
-            <a :href="runtimeConfig.public.APP_URL + `/fortune/${key}${fortuneDateType ? '?fortuneDateType=' + fortuneDateType : '?fortuneDateType=today'}&type=${explain}`"  class="z-astro-link">{{ item }}</a>
+    <div class="box">
+      <div class="box-2">
+        <ul class="z-fortune-type-ul">
+          <li :class="{'z-fortune-type-li': true, 'z-fortune-type-active-li': fortuneDateType === 'today' || !fortuneDateType}">
+            <a :href="runtimeConfig.public.APP_URL + `/fortune/${astroType}?fortuneDateType=today&type=${explain}`" class="z-link">今日运势</a>
+          </li>
+          <li :class="{'z-fortune-type-li': true, 'z-fortune-type-active-li': fortuneDateType === 'tomorrow'}">
+            <a :href="runtimeConfig.public.APP_URL + `/fortune/${astroType}?fortuneDateType=tomorrow&type=${explain}`" class="z-link">明日运势</a>
+          </li>
+          <li :class="{'z-fortune-type-li': true, 'z-fortune-type-active-li': fortuneDateType === 'month'}">
+            <a :href="runtimeConfig.public.APP_URL + `/fortune/${astroType}?fortuneDateType=month&type=${explain}`" class="z-link">本月运势</a>
+          </li>
+          <li :class="{'z-fortune-type-li': true, 'z-fortune-type-active-li': fortuneDateType === 'years'}">
+            <a :href="runtimeConfig.public.APP_URL + `/fortune/${astroType}?fortuneDateType=years&type=${explain}`" class="z-link">今年运势</a>
           </li>
         </ul>
-      </div>
-      <div class="z-fortune-explain">
-        <a :href="`${runtimeConfig.public.APP_URL + '/fortune'}/${astroType}?fortuneDateType=${fortuneDateType}&type=1`" :class="{'z-other-fortune': true, 'z-other-fortune-active': explain === '1' || !explain }">运势解释1</a>
-        <a :href="`${runtimeConfig.public.APP_URL + '/fortune'}/${astroType}?fortuneDateType=${fortuneDateType}&type=2`" :class="{'z-other-fortune': true, 'z-other-fortune-active': explain === '2' }">运势解释2</a>
-      </div>
-      
-      <div class="z-fortune-box">
-        <img :src="runtimeConfig.public.APP_URL + `/${astroType}.png`" :alt="`${astroConfig[astroType]}图片`" height="100" width="100" class="z-fortune-astro-img">
-        <div class="z-fortune-content">
-          <template v-if="explain === '1'">
-            <p class="z-p">
-              <span class="z-comprehensive-fortune-score">综合运势：<em class="z-yellow">{{ fortuneData.comprehensiveFortune }}分</em></span>
-              <span class="z-love-fortune-score">爱情运势：<em class="z-yellow">{{ fortuneData.loveFortune }}分</em></span>
-              <span class="z-work-fortune-score">事业/学习运势：<em class="z-yellow">{{ fortuneData.workFortune }}分</em></span>  
-            </p>
+        <div class="z-fortune">
+          <div class="z-header-box">
+            <h1 class="z-fortune-title">{{ astroConfig[astroType] }}{{dateTypeConfig[fortuneDateType]}} {{ date }}</h1>
             
-            <p class="z-p">
-              <template v-if="fortuneDateType === 'today' || fortuneDateType === 'tomorrow'">
-                <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
-                <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
-                <span class="z-talk-fortune-score">商聊运势：<em class="z-yellow">{{ fortuneData.talkFortune }}分</em></span>  
-              </template>
-              <template v-if="fortuneDateType === 'month'">
-                <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
-                <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
-              </template>
-              <template v-if="fortuneDateType === 'years'">
-                <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
-                <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
-              </template>
-            </p>
-            
-            <p class="z-p">
-              <template v-if="fortuneDateType === 'today' || fortuneDateType === 'tomorrow'">
-                <span class="z-lucky-color">幸运颜色：<em class="z-yellow">{{ fortuneData.luckyColor }}</em></span>
-                <span class="z-lucky-number">幸运数字：<em class="z-yellow">{{ fortuneData.luckyNumber }}</em></span>
-                <span class="z-lucky-astro">幸运星座：<em class="z-yellow">{{ fortuneData.matchAstro }}</em></span>  
-              </template>
-            </p>
-          </template>
-          <template v-if="explain === '2'">
-            <template v-if="fortuneDateType === 'today' || fortuneDateType === 'tomorrow'">
-              <p class="z-p">
-                <span class="z-comprehensive-fortune-score">综合运势：<em class="z-yellow">{{ fortuneData.comprehensiveFortune }}分</em></span>
-                <span class="z-love-fortune-score">爱情运势：<em class="z-yellow">{{ fortuneData.loveFortune }}分</em></span>
-                <span class="z-work-fortune-score">事业/学习运势：<em class="z-yellow">{{ fortuneData.workFortune }}分</em></span>  
-                <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
-                <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
-              </p>  
-              <p class="z-p">
-                <span class="z-lucky-color">幸运颜色：<em class="z-yellow">{{ fortuneData.luckyColor }}</em></span>
-                <span class="z-lucky-number">幸运数字：<em class="z-yellow">{{ fortuneData.luckyNumber }}</em></span>
-                <span class="z-lucky-astro">幸运星座：<em class="z-yellow">{{ fortuneData.matchAstro }}</em></span>  
-                <span class="z-lucky-astro">幸运吉时：<em class="z-yellow">{{ fortuneData.auspiciousHour }}</em></span>  
-              </p>
-            </template>
-            <template v-if="fortuneDateType === 'month'">
-              <p class="z-p">
-                <span class="z-comprehensive-fortune-score">综合运势：<em class="z-yellow">{{ fortuneData.comprehensiveFortune }}分</em></span>
-                <span class="z-love-fortune-score">爱情运势：<em class="z-yellow">{{ fortuneData.loveFortune }}分</em></span>
-                <span class="z-work-fortune-score">事业/学习运势：<em class="z-yellow">{{ fortuneData.workFortune }}分</em></span>  
-                <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
-                <span class="z-wealth-fortune-score">贵人星座：<em class="z-yellow">{{ fortuneData.dignitaryAstro }}</em></span>  
-              </p>
-              <p class="z-p">
-                <span class="z-comprehensive-fortune-score">小人星座：<em class="z-yellow">{{ fortuneData.villainAstro }}</em></span>
-                <span class="z-lucky-number">幸运数字：<em class="z-yellow">{{ fortuneData.luckyNumber }}</em></span>
-                <span class="z-lucky-color">幸运颜色：<em class="z-yellow">{{ fortuneData.luckyColor }}</em></span>
-              </p>
-            </template>
-            <template v-if="fortuneDateType === 'years'">
-              <p class="z-p">
-                <span class="z-comprehensive-fortune-score">综合运势：<em class="z-yellow">{{ fortuneData.comprehensiveFortune }}分</em></span>
-                <span class="z-love-fortune-score">爱情运势：<em class="z-yellow">{{ fortuneData.loveFortune }}分</em></span>
-                <span class="z-work-fortune-score">事业/学习运势：<em class="z-yellow">{{ fortuneData.workFortune }}分</em></span>  
-                <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
-                <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
-              </p>
-            </template>
-          </template>
+            <ul class="z-astro-ul">
+              <li class="z-astro-li" v-for="(item,key) in astroConfig" :key="key">
+                <img :src="runtimeConfig.public.APP_URL + `/${key}.png`" class="z-astro-img" :alt="`${item}图片`" height="16" width="16">
+                <a :href="runtimeConfig.public.APP_URL + `/fortune/${key}${fortuneDateType ? '?fortuneDateType=' + fortuneDateType : '?fortuneDateType=today'}&type=${explain}`"  class="z-astro-link">{{ item }}</a>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="z-fortune-explain">
+            <a :href="`${runtimeConfig.public.APP_URL + '/fortune'}/${astroType}?fortuneDateType=${fortuneDateType}&type=1`" :class="{'z-other-fortune': true, 'z-other-fortune-active': explain === '1' || !explain }">运势解释1</a>
+            <a :href="`${runtimeConfig.public.APP_URL + '/fortune'}/${astroType}?fortuneDateType=${fortuneDateType}&type=2`" :class="{'z-other-fortune': true, 'z-other-fortune-active': explain === '2' }">运势解释2</a>
+          </div> -->
           
-          <p class="z-p">
-            <span class="z-fortune-summary">运势简短总结：<em class="z-yellow">{{ fortuneData.shortComment }}</em></span>  
+          <div class="z-fortune-box">
+            <img :src="runtimeConfig.public.APP_URL + `/${astroType}.png`" :alt="`${astroConfig[astroType]}图片`" height="100" width="100" class="z-fortune-astro-img">
+            <div class="z-fortune-content">
+              <template v-if="explain === '1'">
+                <p class="z-p">
+                  <span class="z-comprehensive-fortune-score">综合运势：<em class="z-yellow">{{ fortuneData.comprehensiveFortune }}分</em></span>
+                  <span class="z-love-fortune-score">爱情运势：<em class="z-yellow">{{ fortuneData.loveFortune }}分</em></span>
+                  <span class="z-work-fortune-score">事业/学习运势：<em class="z-yellow">{{ fortuneData.workFortune }}分</em></span>  
+                </p>
+                
+                <p class="z-p">
+                  <template v-if="fortuneDateType === 'today' || fortuneDateType === 'tomorrow'">
+                    <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
+                    <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
+                    <span class="z-talk-fortune-score">商聊运势：<em class="z-yellow">{{ fortuneData.talkFortune }}分</em></span>  
+                  </template>
+                  <template v-if="fortuneDateType === 'month'">
+                    <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
+                    <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
+                  </template>
+                  <template v-if="fortuneDateType === 'years'">
+                    <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
+                    <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
+                  </template>
+                </p>
+                
+                <p class="z-p">
+                  <template v-if="fortuneDateType === 'today' || fortuneDateType === 'tomorrow'">
+                    <span class="z-lucky-color">幸运颜色：<em class="z-yellow">{{ fortuneData.luckyColor }}</em></span>
+                    <span class="z-lucky-number">幸运数字：<em class="z-yellow">{{ fortuneData.luckyNumber }}</em></span>
+                    <span class="z-lucky-astro">幸运星座：<em class="z-yellow">{{ fortuneData.matchAstro }}</em></span>  
+                  </template>
+                </p>
+              </template>
+              <template v-if="explain === '2'">
+                <template v-if="fortuneDateType === 'today' || fortuneDateType === 'tomorrow'">
+                  <p class="z-p">
+                    <span class="z-comprehensive-fortune-score">综合运势：<em class="z-yellow">{{ fortuneData.comprehensiveFortune }}分</em></span>
+                    <span class="z-love-fortune-score">爱情运势：<em class="z-yellow">{{ fortuneData.loveFortune }}分</em></span>
+                    <span class="z-work-fortune-score">事业/学习运势：<em class="z-yellow">{{ fortuneData.workFortune }}分</em></span>  
+                    <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
+                    <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
+                  </p>  
+                  <p class="z-p">
+                    <span class="z-lucky-color">幸运颜色：<em class="z-yellow">{{ fortuneData.luckyColor }}</em></span>
+                    <span class="z-lucky-number">幸运数字：<em class="z-yellow">{{ fortuneData.luckyNumber }}</em></span>
+                    <span class="z-lucky-astro">幸运星座：<em class="z-yellow">{{ fortuneData.matchAstro }}</em></span>  
+                    <span class="z-lucky-astro">幸运吉时：<em class="z-yellow">{{ fortuneData.auspiciousHour }}</em></span>  
+                  </p>
+                </template>
+                <template v-if="fortuneDateType === 'month'">
+                  <p class="z-p">
+                    <span class="z-comprehensive-fortune-score">综合运势：<em class="z-yellow">{{ fortuneData.comprehensiveFortune }}分</em></span>
+                    <span class="z-love-fortune-score">爱情运势：<em class="z-yellow">{{ fortuneData.loveFortune }}分</em></span>
+                    <span class="z-work-fortune-score">事业/学习运势：<em class="z-yellow">{{ fortuneData.workFortune }}分</em></span>  
+                    <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
+                    <span class="z-wealth-fortune-score">贵人星座：<em class="z-yellow">{{ fortuneData.dignitaryAstro }}</em></span>  
+                  </p>
+                  <p class="z-p">
+                    <span class="z-comprehensive-fortune-score">小人星座：<em class="z-yellow">{{ fortuneData.villainAstro }}</em></span>
+                    <span class="z-lucky-number">幸运数字：<em class="z-yellow">{{ fortuneData.luckyNumber }}</em></span>
+                    <span class="z-lucky-color">幸运颜色：<em class="z-yellow">{{ fortuneData.luckyColor }}</em></span>
+                  </p>
+                </template>
+                <template v-if="fortuneDateType === 'years'">
+                  <p class="z-p">
+                    <span class="z-comprehensive-fortune-score">综合运势：<em class="z-yellow">{{ fortuneData.comprehensiveFortune }}分</em></span>
+                    <span class="z-love-fortune-score">爱情运势：<em class="z-yellow">{{ fortuneData.loveFortune }}分</em></span>
+                    <span class="z-work-fortune-score">事业/学习运势：<em class="z-yellow">{{ fortuneData.workFortune }}分</em></span>  
+                    <span class="z-wealth-fortune-score">财富运势：<em class="z-yellow">{{ fortuneData.wealthFortune }}分</em></span>
+                    <span class="z-health-fortune-score">健康运势：<em class="z-yellow">{{ fortuneData.healthFortune }}分</em></span>
+                  </p>
+                </template>
+              </template>
+              
+              <p class="z-p">
+                <span class="z-fortune-summary">运势简短总结：<em class="z-yellow">{{ fortuneData.shortComment }}</em></span>  
+              </p>
+              
+            </div>
+          </div>
+          <p class="z-fortune-detail">
+            <strong class="z-fortune-subtitle">综合运势：</strong>
+            {{ fortuneData.comprehensiveFortuneDetail }}
+          </p>
+          <p class="z-fortune-detail">
+            <strong class="z-fortune-subtitle">爱情运势：</strong>
+            {{ fortuneData.loveFortuneDetail }}
+          </p>
+          <p class="z-fortune-detail">
+            <strong class="z-fortune-subtitle">事业/学习运势：</strong>
+            {{ fortuneData.workFortuneDetail }}
+          </p>
+          <p class="z-fortune-detail">
+            <strong class="z-fortune-subtitle">财富运势：</strong>
+            {{ fortuneData.wealthFortuneDetail }}
+          </p>
+          <p class="z-fortune-detail">
+            <strong class="z-fortune-subtitle">健康运势：</strong>
+            {{ fortuneData.healthFortuneDetail }}
           </p>
           
         </div>
       </div>
-      <p class="z-fortune-detail">
-        <strong class="z-fortune-subtitle">综合运势：</strong>
-        {{ fortuneData.comprehensiveFortuneDetail }}
-      </p>
-      <p class="z-fortune-detail">
-        <strong class="z-fortune-subtitle">爱情运势：</strong>
-        {{ fortuneData.loveFortuneDetail }}
-      </p>
-      <p class="z-fortune-detail">
-        <strong class="z-fortune-subtitle">事业/学习运势：</strong>
-        {{ fortuneData.workFortuneDetail }}
-      </p>
-      <p class="z-fortune-detail">
-        <strong class="z-fortune-subtitle">财富运势：</strong>
-        {{ fortuneData.wealthFortuneDetail }}
-      </p>
-      <p class="z-fortune-detail">
-        <strong class="z-fortune-subtitle">健康运势：</strong>
-        {{ fortuneData.healthFortuneDetail }}
-      </p>
-      <p class="z-man-made">
-          <span class="z-consult">添加好友咨询，真人解释运势情况！</span>
-          <img class="z-consult-img" :src="runtimeConfig.public.APP_URL + zhunzhun_weixin" alt="联系准准人工推运势" width="400" height="400">
-          
-      </p>
+      
     </div>
+    
 </template>
 <script setup>
 import zhunzhun_weixin from '@/assets/img/weixin-code_10.png'
@@ -247,6 +248,14 @@ const res2 = await apis.getArticleList({
 article.value = res2.data.value.data.list
 </script>
 <style lang="scss" scoped>
+.box {
+  padding: 150px 0px;width: 100%;margin:auto;
+  background:url("https://file.zhunzx.cn/zhanbu-bg.png?v=3") no-repeat center top;
+  background-size: cover;
+}
+.box-2 {
+  width: 1400px;margin:auto;
+}
 .z-fortune {
   padding: 30px;background:rgba(255,255,255,0.2);
   border-top-right-radius: 12px;
@@ -259,7 +268,7 @@ article.value = res2.data.value.data.list
     }
     
     .z-astro-ul {
-      float:right;position: relative;bottom: -35px;z-index: 10;
+      float:right;position: relative;z-index: 10;padding-right: 10px;
       .z-astro-li {
         float:left;padding-left: 15px;
         .z-astro-img,.z-astro-link {
@@ -312,7 +321,7 @@ article.value = res2.data.value.data.list
 }
 .z-fortune-box {
   overflow: hidden;display: block;background: #fff;
-  padding: 20px;margin-top:15px;border-radius: 12px;margin-bottom: 40px;border-top-left-radius: 0px;
+  padding: 20px 20px 20px 20px;;margin-top:15px;border-radius: 12px;margin-bottom: 40px;
   .z-fortune-content {
     float:left;overflow: hidden;
     .z-p {
@@ -331,7 +340,7 @@ article.value = res2.data.value.data.list
   }
 }
 .z-fortune-detail {
-  display: block;padding-bottom: 30px;color:#c7c7c7;font-size: 14px;
+  display: block;padding-bottom: 30px;color:#333;font-size: 14px;
   .z-fortune-subtitle {
     display: block;padding-bottom: 10px;color:#fdd500;;font-size: 16px;
   }
