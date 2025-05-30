@@ -125,10 +125,7 @@ for (let i = 1; i < 13; i++) {
 for (let i = 1; i < 32; i++) {
     days.value.push(i)
 }
-onMounted(() => {
-    astrolog.value = getZodiacInfo(1,1)
-})
-
+astrolog.value = getZodiacInfo(1,1)
 
 const search = () => {
     loading.value = true;

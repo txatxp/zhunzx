@@ -28,7 +28,8 @@
       .z-astro-config {
         width: 400px;background:rgba(0,0,0,.3);position: absolute;
         top: 0px;right: -454px;border-radius: 12px;text-align: left;
-        padding: 0px 15px 15px 30px;
+        padding: 0px 15px 15px 30px;    height: 940px;
+        overflow-y: scroll;
         .z-astro-title {
           color:#8b7dcf;font-weight: bold;
           padding-top: 18px;padding-bottom: 3px;

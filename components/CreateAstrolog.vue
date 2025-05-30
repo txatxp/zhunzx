@@ -1,15 +1,15 @@
 <template>
     <form id="zDivination" class="z-form" @submit.prevent="handleSubmit">
         <div class="z-form-box">
-            <div class="z-form-item">
+            <!-- <div class="z-form-item">
                 <label for="phone" class="z-label">联系方式：</label>
-                <input type="number" class="z-input" placeholder="请输入联系方式" v-model="phone" maxLength="11">
+                <input type="number" class="z-input" placeholder="请输入联系方式-不是必填" v-model="phone" maxLength="11">
             </div>
             <div class="z-form-item">
                 <label for="phone" class="z-label">姓名：</label>
-                <input type="text" class="z-input" placeholder="请输入姓名" v-model="userName">
+                <input type="text" class="z-input" placeholder="请输入姓名-不是必填" v-model="userName">
             </div>
-            
+             -->
             <div class="z-form-item">
                 <label for="phone" class="z-label">出生日期：</label>
                 <div class="z-input z-input2">
@@ -537,20 +537,20 @@ let reg = /1[2-9]{1}[0-9]{9}/
 
 const submit = async () => {
     
-    if (!phone.value) {
-        alert('请输入手机号')
-        return
-    }
-    if (phone.value) {
-        if (!reg.test(phone.value)) {
-            alert('手机号格式不正确')
-            return
-        }
-    }
-    if (!userName.value) {
-        alert('请输入姓名')
-        return
-    }
+    // if (!phone.value) {
+    //     alert('请输入手机号')
+    //     return
+    // }
+    // if (phone.value) {
+    //     if (!reg.test(phone.value)) {
+    //         alert('手机号格式不正确')
+    //         return
+    //     }
+    // }
+    // if (!userName.value) {
+    //     alert('请输入姓名')
+    //     return
+    // }
     if (!map_lat.value) {
         alert('请输入纬度')
         return
