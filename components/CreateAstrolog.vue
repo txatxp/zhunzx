@@ -565,10 +565,10 @@ const submit = async () => {
     }
     loading.value = true
     const params = {
-        // 手机号
-        phone: phone.value,
-        // 姓名
-        name: userName.value,
+        // // 手机号
+        // phone: phone.value || '',
+        // // 姓名
+        // name: userName.value || '',
         // 经度
         longitude: `${map_lng.value.toFixed(6)}E`,
         // 纬度
