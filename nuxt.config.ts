@@ -30,7 +30,8 @@ export default defineNuxtConfig({
           charset: 'utf-8'
         },
         { src: 'https://api.map.baidu.com/api?type=webgl&v=1.0&ak=sMRzMt7GPkOFhtf79yC4CgTaqzjeLtMq' },
-        {src: 'https://file.zhunzx.cn/Macy.js'}
+        {src: 'https://file.zhunzx.cn/Macy.js'},
+        {src: 'https://res.wx.qq.com/open/js/jweixin-1.3.2.js'},
       ],
       meta: [
         {
