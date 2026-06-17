@@ -125,4 +125,67 @@ useSeoMeta({
         display: block;text-align: center;padding-top: 10px;color:#fff;
     }
 }
+
+@media screen and (max-width: 1400px) {
+    .z-container-box {
+        width: auto;
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .z-container {
+        padding: 20px 12px;
+    }
+    .z-container-box {
+        width: 100%;
+        margin: 0;
+        padding: 30px 16px 0px 16px;
+    }
+    .z-title-text {
+        font-size: 24px;
+        line-height: 38px;
+        padding: 0px 8px;
+    }
+    .z-sub-title {
+        font-size: 15px;
+        padding-top: 12px;
+        line-height: 1.6;
+    }
+    .z-introduce {
+        font-size: 14px;
+        padding-top: 24px;
+        line-height: 1.7;
+    }
+    .z-container-box img[src*="zhunzhun-pic"] {
+        width: 100% !important;
+        margin-top: 30px !important;
+    }
+    .z-weixin {
+        padding-top: 50px;
+    }
+    .z-contact-ul {
+        padding-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .z-contact-li {
+            float: none;
+            padding-right: 0;
+            margin-bottom: 36px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .z-contact-img {
+            max-width: 260px;
+            width: 80%;
+            height: auto;
+        }
+        .z-contact-text {
+            font-size: 14px;
+        }
+    }
+}
 </style>

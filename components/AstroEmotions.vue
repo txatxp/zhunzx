@@ -61,4 +61,11 @@ console.log(astroEmotions, '---astroEmotions')
     .float-left {float:left;}
     .float-right{float:right;font-weight: 100;font-size: 12px;position: relative;top: 5px;text-decoration: none;color:#cc00ff;}
 }
+@media screen and (max-width: 768px) {
+    .astrolog-img-box {
+        width: 100%;
+        float: none;
+        margin-bottom: 15px;
+    }
+}
 </style>

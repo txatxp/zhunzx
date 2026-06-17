@@ -25,4 +25,16 @@ definePageMeta({
   width: 1400px;overflow:hidden;margin: auto;
   padding-top: 20px;margin-bottom: 50px;
 }
+@media screen and (max-width: 1400px) {
+  .z-divination-box {
+    width: auto;
+    margin: 0 20px 50px 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .z-divination-box {
+    margin: 0 10px 30px 10px;
+    padding-top: 10px;
+  }
+}
 </style>

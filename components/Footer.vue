@@ -29,7 +29,17 @@
 .technology-link {
     color: rgb(0, 132, 255);
     text-decoration: none;
-   
+
 }
 
+@media screen and (max-width: 768px) {
+    .footer-technology {
+        padding: 10px 10px 10px;
+    }
+    .z-footer-copyright {
+        padding: 8px 10px;
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
 </style>

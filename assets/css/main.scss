@@ -30,3 +30,12 @@ body {
         width: auto;margin:auto;position: relative;
     }
 }
+@media screen and (max-width: 768px) {
+    html, body {
+        min-width: 320px;
+        overflow-x: hidden;
+    }
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+}

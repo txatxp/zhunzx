@@ -73,4 +73,22 @@ const astroConfig = {
         display: block;text-decoration: none;padding-top: 3px;color:#333;
     }
 }
+@media screen and (max-width: 768px) {
+    .astro {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        margin-bottom: 15px;
+        .astro-list {
+            margin: 0 10px;
+        }
+        .z-link {
+            width: 25%;
+            height: 90px;
+        }
+        .z-img {
+            height: 48px;
+        }
+    }
+}
 </style>

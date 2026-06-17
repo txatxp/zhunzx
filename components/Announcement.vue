@@ -95,4 +95,18 @@ fortune.value = result2.data.value.data.list
         vertical-align: middle;margin-right: 10px;color:#cc00ff;
     }
 }
+@media screen and (max-width: 768px) {
+    .announcement {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        margin-bottom: 15px;
+        height: auto;
+        min-height: 125px;
+    }
+    .announcement2 {
+        margin-top: 15px;
+        height: auto;
+    }
+}
 </style>

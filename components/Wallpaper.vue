@@ -12,8 +12,12 @@
             :loop="true"
             :autoplay="true"
             :modules="modules"
-            :slides-per-view="8"
+            :slides-per-view="4"
             :space-between="10"
+            :breakpoints="{
+                '768': { slidesPerView: 6 },
+                '480': { slidesPerView: 3 }
+            }"
             @swiper="onSwiper"
             @slideChange="onSlideChange"
             navigation
@@ -103,5 +107,17 @@ const modules = ref([Navigation, Pagination, Scrollbar, A11y, Autoplay])
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+    .announcement {
+        height: auto;
+        padding-bottom: 10px;
+    }
+    .wallpaper-box {
+        height: 200px;
+    }
+    .wallpaper-item {
+        height: 200px;
+    }
 }
 </style>

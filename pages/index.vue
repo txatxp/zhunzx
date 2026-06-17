@@ -54,6 +54,13 @@ onMounted(() => {
     }
 }
 @media screen and (max-width: 1400px) {
-    
+    .z-index {
+        width: 100%;
+        padding: 15px 10px;
+        .z-list {
+            overflow: hidden;
+            padding-bottom: 15px;
+        }
+    }
 }
 </style>

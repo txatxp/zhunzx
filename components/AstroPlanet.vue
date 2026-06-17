@@ -81,4 +81,31 @@
         position: relative;top: -2px;margin-left: 2px;
     }
 }
+@media screen and (max-width: 768px) {
+    .astrolog-img-box {
+        .astrolog-title {
+            font-size: 14px;
+            padding: 15px 0px;
+            margin: 0px 12px;
+        }
+        .z-announcement-list {
+            width: 100%;
+            float: none;
+            white-space: normal;
+            padding: 16px 0px;
+            margin: 0px 12px;
+            border-bottom: 1px dashed #cfcfcf;
+            &:last-child {
+                border-bottom: none;
+            }
+            .z-list-p {
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+        }
+        .z-list-span {
+            font-size: 13px;
+        }
+    }
+}
 </style>

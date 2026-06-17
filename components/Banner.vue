@@ -72,4 +72,43 @@ const modules = ref([Navigation, Pagination, Scrollbar, A11y, Autoplay])
         border-radius: 7.5px;;
     }
 }
+@media screen and (max-width: 768px) {
+    .z-banner {
+        height: 200px;
+        :deep(.swiper) {
+            height: 100%;
+        }
+        :deep(.swiper-wrapper) {
+            height: 100%;
+        }
+        :deep(.swiper-slide) {
+            height: 100%;
+        }
+        .z-banner-link {
+            height: 100%;
+            .z-banner-text {
+                height: 36px;
+                line-height: 36px;
+                font-size: 14px;
+                padding-left: 10px;
+            }
+        }
+        .z-banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        :deep(.swiper-pagination) {
+            bottom: 8px;
+        }
+        :deep(.swiper-pagination-bullet) {
+            width: 10px;
+            height: 10px;
+        }
+        :deep(.swiper-pagination-bullet-active) {
+            width: 28px;
+            border-radius: 5px;
+        }
+    }
+}
 </style>

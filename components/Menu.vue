@@ -145,49 +145,76 @@ onMounted(() => {
 }
 @media screen and (max-width: 1400px) {
   .z-header {
-    height: 60px;;
+    height: 56px;
     background: url("/xingkong.png") repeat,#120f35;
     background-size: 100% auto;
     .z-menu-box {
       .z-logo {
-        display: block;
-        overflow:hidden;background: #fff;;
-        height: 50px;padding-top: 10px;padding-left: 10px;
-        width: 160px;
+        display: flex;
+        align-items: center;
+        height: 56px;
+        padding-left: 12px;
+        background: #fff;
+        width: 150px;
+        border-radius: 0 0 8px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       }
       .z-logo-img {
-        height: 40px;
+        height: 36px;
       }
       .z-nav {
-        display: block;position: fixed;z-index: 9999;
-        width: 100%;height: 50px;bottom:0px;left:0px;
-        background-color: #fff;border-top: 1px solid #eee;
-        .z-menu-list {
-          float:left;
-        }
+        display: block;
+        position: fixed;
+        z-index: 9999;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.08);
+        border-top: none;
+        padding-bottom: env(safe-area-inset-bottom);
         .z-menu {
           display: flex;
-          justify-content: space-between;
-          overflow: hidden;padding-top: 10px;
-          padding: 0px 15px;height: 50px;
+          justify-content: space-around;
+          align-items: center;
+          height: 56px;
+          padding: 0 4px;
+        }
+        .z-menu-list {
+          float: none;
+          text-align: center;
+          position: relative;
+          flex: 1;
         }
         .z-menu-active {
           .z-menu-link {
-            color:orange;
+            color: #6c3bd7;
+            font-weight: 700;
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22px;
+            height: 3px;
+            background: linear-gradient(135deg, #6c3bd7, #e85d9c);
+            border-radius: 0 0 3px 3px;
           }
         }
-        .z-menu-list {
-          float: left;
-        }
         .z-menu-link {
-          color: #000;
+          color: #999;
           text-decoration: none;
-          font-size: 14px;
-          line-height: 50px;;
+          font-size: 12px;
+          line-height: 56px;
+          display: block;
+          transition: color 0.25s ease, font-weight 0.25s ease;
         }
       }
     }
   }
-  
 }
 </style>

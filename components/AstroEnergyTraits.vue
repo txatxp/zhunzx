@@ -81,4 +81,33 @@
     .float-left {float:left;}
     .float-right{float:right;font-weight: 100;font-size: 12px;position: relative;top: 5px;text-decoration: none;color:#b400ff;}
 }
+@media screen and (max-width: 768px) {
+    .astrolog-img-box {
+        .astrolog-title {
+            font-size: 14px;
+            padding: 15px 0px;
+            margin: 0px 12px;
+        }
+        .z-announcement-list {
+            width: 100%;
+            float: none;
+            white-space: normal;
+            padding: 16px 0px;
+            margin: 0px 12px;
+            &:nth-of-type(3) {
+                border-bottom: 1px dashed #cfcfcf;
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+            .z-list-p {
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+        }
+        .z-list-span {
+            font-size: 13px;
+        }
+    }
+}
 </style>

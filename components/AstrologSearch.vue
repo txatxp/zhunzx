@@ -190,4 +190,39 @@ const search = () => {
         color:orange;font-weight: bold;
     }
 }
+@media screen and (max-width: 768px) {
+    .astrolog-img-box {
+        width: 100%;
+        float: none;
+        margin-bottom: 15px;
+        overflow: visible;
+        .astrolog-form {
+            margin: 0 10px;
+            padding: 15px 0 10px 0;
+        }
+        .astrolog {
+            height: auto;
+            padding: 10px 10px;
+        }
+        .astrolog-item {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .z-astrolog-content {
+            padding-left: 0;
+            padding-top: 10px;
+        }
+        .z-content {
+            padding-left: 0;
+        }
+        .w-200 {
+            width: 160px;
+        }
+        .w-100 {
+            width: 100px;
+        }
+    }
+}
 </style>

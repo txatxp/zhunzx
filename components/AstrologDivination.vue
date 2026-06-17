@@ -427,4 +427,57 @@ watchEffect(() => {
             }
     }
 }
+@media screen and (max-width: 768px) {
+    .announcement {
+        height: 320px;
+        .astrolog-title {
+            padding: 10px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+        }
+        .float-left {
+            float: none;
+        }
+        .float-right {
+            float: none;
+            height: auto;
+            line-height: 22px;
+            padding: 2px 10px;
+            font-size: 11px;
+        }
+        .analysis-pattern {
+            float: none;
+            margin-left: 0;
+            font-size: 12px;
+        }
+        .list-sp {
+            padding-left: 8px;
+            font-size: 11px;
+        }
+        .start-divination {
+            width: 160px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
+            letter-spacing: 4px;
+        }
+        .modal {
+            width: 90%;
+            left: 5%;
+            margin-left: 0;
+            height: auto;
+            padding-bottom: 20px;
+            .modal-body {
+                :deep(.el-input) {
+                    width: 260px !important;
+                }
+            }
+            .modal-footer {
+                padding-top: 15px;
+            }
+        }
+    }
+}
 </style>
